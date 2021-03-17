@@ -9,19 +9,23 @@
     
   }
   
-  h1, p, button, a, h2 {
+  h1, p, a, h2, button {
     font-family: Arial;
   }
   
   button {
     margin: 20px;
-    font-size: 15px;
+    font-size: auto;
+    border: 1px solid darkslategrey;
+    
   }
-  
+
   h2, #textoMpptAdecuado, #textoTodosMpptAdecuado {
     display: none;
   }
 
   input{
-    height: 60px;
+    height: auto;
+    border: 1px solid darkslategrey;
+    
   }
