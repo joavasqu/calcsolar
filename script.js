@@ -7,6 +7,7 @@ let boton = document.getElementById('calcVoc');
 let resultado = document.getElementById('resultado');
 let mppt = document.getElementById('mppt');
 let mpptH2 = document.getElementById('mppth2');
+let mpptadecuado = document.getElementById('mpptadecuado');
 
 
 
@@ -50,15 +51,38 @@ function vocMax(){
         controlador = '<b>NO HAY DISPONIBLES</b> controladores de carga MPPT para voltajes de entrada superiores a 250V';
     }
     
+    var mpptAdecuados = eleccionModeloMppt(vocMax, amps, arrayMppt, voltBat);
+
     resultado.innerHTML = `El Voc máx para una temperatura de ${temp} °C es de <b>${vocMax} Volts</b> si consideramos un <em>Voltage temperature coefficient</em> de -0,33%/°C`;
     mpptH2.style.display = 'block';
-    mppt.innerHTML = controlador +` El controlador debe tener una capacidad de carga igual o mayor a ${amps} A`;
+    mppt.innerHTML = controlador +` El controlador debe tener una capacidad de carga igual o mayor a ${amps} A. `;
+    document.getElementById("textoMpptAdecuado").style.display = 'block';
+    mpptadecuado.innerHTML = `Se recomiendan el modelo <b>${mpptAdecuados}</b>`;
+
 
 }
 
+function eleccionModeloMppt(maxVoc, ampsMax, arregloControladores, voltajeBateria){
+    var modelos = [];
+    for(var i=0; i<arregloControladores.length;i++){
+        if(arregloControladores[i].ventrada > maxVoc && arregloControladores[i].capacidad > ampsMax && arregloControladores[i].maxvoltbateria >= voltajeBateria){
+            modelos.push(arregloControladores[i].modelo);
+            break;
+        }
+    }
+    return modelos;
+}
 
 
 
 boton.addEventListener('click', vocMax);
 
-const array = [{modelo: "Tracer2015", ventrada: 150, capacidad: 20},{modelo: "Tracer5020", ventrada: 200, capacidad: 50}];
+const arrayMppt = [{modelo: "Tracer2210BN", ventrada: 100, capacidad: 20, maxvoltbateria: 24},
+                    {modelo: "Tracer3210BN", ventrada: 100, capacidad: 30 ,maxvoltbateria: 24},
+                    {modelo: "Tracer4210AN", ventrada: 100, capacidad: 40 ,maxvoltbateria: 24},
+                    {modelo: "Tracer4215BN", ventrada: 150, capacidad: 40 ,maxvoltbateria: 24},
+                    {modelo: "Tracer5415AN", ventrada: 150, capacidad: 50 ,maxvoltbateria: 48},
+                    {modelo: "Tracer10415AN", ventrada: 150, capacidad: 100 ,maxvoltbateria: 48},
+                    {modelo: "Tracer5420AN", ventrada: 200, capacidad: 50 ,maxvoltbateria: 48},
+                    {modelo: "Tracer8420AN", ventrada: 200, capacidad: 80 ,maxvoltbateria: 48}
+                ];
