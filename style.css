@@ -21,3 +21,7 @@
   h2, #textoMpptAdecuado, #textoTodosMpptAdecuado {
     display: none;
   }
+
+  input{
+    height: 60px;
+  }
