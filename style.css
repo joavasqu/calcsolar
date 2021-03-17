@@ -1,0 +1,22 @@
+
+  
+  h1 {
+    background-color: slategray;
+    
+    color: white;
+    text-align: center;
+    padding: 20px 30px;
+    
+  }
+  
+  h1, p, button, a, h2 {
+    font-family: Arial;
+  }
+  
+  button {
+    margin: 20px;
+  }
+  
+  h2 {
+    display: none;
+  }
