@@ -8,6 +8,7 @@ let resultado = document.getElementById('resultado');
 let mppt = document.getElementById('mppt');
 let mpptH2 = document.getElementById('mppth2');
 let mpptadecuado = document.getElementById('mpptadecuado');
+let mpptTodosAdecuados = document.getElementById('todosmpptadecuado');
 
 
 
@@ -51,17 +52,21 @@ function vocMax(){
         controlador = '<b>NO HAY DISPONIBLES</b> controladores de carga MPPT para voltajes de entrada superiores a 250V';
     }
     
-    var mpptAdecuados = eleccionModeloMppt(vocMax, amps, arrayMppt, voltBat);
+    var mpptAdecuado = eleccionModeloMppt(vocMax, amps, arrayMppt, voltBat);
+    var mpptTodos = eleccionModeloMpptTodos(vocMax, amps, arrayMppt, voltBat);
 
+    
     resultado.innerHTML = `El Voc máx para una temperatura de ${temp} °C es de <b>${vocMax} Volts</b> si consideramos un <em>Voltage temperature coefficient</em> de -0,33%/°C`;
     mpptH2.style.display = 'block';
     mppt.innerHTML = controlador +` El controlador debe tener una capacidad de carga igual o mayor a ${amps} A. `;
     document.getElementById("textoMpptAdecuado").style.display = 'block';
-    mpptadecuado.innerHTML = `Se recomiendan el modelo <b>${mpptAdecuados}</b>`;
-
+    mpptadecuado.innerHTML = `Se recomiendan el modelo <b>${mpptAdecuado}</b>`;
+    document.getElementById("textoTodosMpptAdecuado").style.display = 'block';
+    mpptTodosAdecuados.innerHTML = mpptTodos;
+    
 
 }
-
+// esta función elige al primer controlador del arreglo de controladores que cumple con las características requeridas.
 function eleccionModeloMppt(maxVoc, ampsMax, arregloControladores, voltajeBateria){
     var modelos = [];
     for(var i=0; i<arregloControladores.length;i++){
@@ -72,7 +77,16 @@ function eleccionModeloMppt(maxVoc, ampsMax, arregloControladores, voltajeBateri
     }
     return modelos;
 }
-
+// esta función es la misma que la anterior pero sin el Break para que salgan todos los controlres adecuados.
+function eleccionModeloMpptTodos(maxVoc, ampsMax, arregloControladores, voltajeBateria){
+    var modelos = [];
+    for(var i=0; i<arregloControladores.length;i++){
+        if(arregloControladores[i].ventrada > maxVoc && arregloControladores[i].capacidad > ampsMax && arregloControladores[i].maxvoltbateria >= voltajeBateria){
+            modelos.push(" "+ arregloControladores[i].modelo +" ");
+                    }
+    }
+    return modelos;
+}
 
 
 boton.addEventListener('click', vocMax);
