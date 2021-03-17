@@ -16,13 +16,24 @@
     <input type="number" id="Voc" size="10" required>
     <br>
     <p>Introducir temperatura mínima de operación en °C</p>
-    <input type="number" id="tempMin" size="10" required>
+    <select name="tempMin" id="tempMin">
+      <option value="10">10°C</option>
+      <option value="0">0°C</option>
+      <option value="-10">-10°C</option>
+      <option value="-20">-20°C</option>
+      <option value="-30">-30°C</option>
+      <option value="-40">-40°C</option>
+    </select>gi
     <p>Introducir la cantidad de paneles en Serie</p>
     <input type="number" id="cantSerie" size="10" required value="1">
     <p>Introducir la cantidad de Strings (Por ejemplo si un arreglo de 6 paneles, tiene strings de 3 paneles en serie, el total de strings es de 2)</p>
     <input type="number" id="cantString" size="10" required value="1">
     <p>Introducir el voltaje del banco de baterías (solo introducir 12 o 24 o 48)</p>
-    <input type="number" id="voltBat" size="10" required value="12">
+    <select id="voltBat" name="voltBat">  
+      <option>12</option>  
+      <option>24</option>  
+      <option>48</option>  
+    </select>
     <br>
     <button id="calcVoc">CALCULAR</button>
     <br>
