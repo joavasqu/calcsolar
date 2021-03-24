@@ -10,42 +10,52 @@
     <body>
 
     <h1>Selección de controlador MPPT</h1>
-    <p>Introducir potencia del panel en Watts</p>
-    <input type="number" id="potenciaPanel" min="10">
-        <p>Introducir Voc del panel solar</p>
-    <input type="number" id="Voc" size="10" required>
-    <br>
-    <p>Introducir temperatura mínima de operación en °C</p>
-    <select name="tempMin" id="tempMin">
-      <option value="10">10°C</option>
-      <option value="0">0°C</option>
-      <option value="-10">-10°C</option>
-      <option value="-20">-20°C</option>
-      <option value="-30">-30°C</option>
-      <option value="-40">-40°C</option>
-    </select>
-    <p>Introducir la cantidad de paneles en Serie</p>
-    <input type="number" id="cantSerie" size="10" required value="1">
-    <p>Introducir la cantidad de Strings (Por ejemplo si un arreglo de 6 paneles, tiene strings de 3 paneles en serie, el total de strings es de 2)</p>
-    <input type="number" id="cantString" size="10" required value="1">
-    <p>Introducir el voltaje del banco de baterías (solo introducir 12 o 24 o 48)</p>
-    <select id="voltBat" name="voltBat">  
-      <option>12</option>  
-      <option>24</option>  
-      <option>48</option>  
-    </select>
-    <br>
-    <button id="calcVoc">CALCULAR</button>
-    <br>
-    <p id="resultado"></p>
-    <br>
-    <h2 id="mppth2">Controlador MPPT adecuado:</h2>
-    <p id="mppt"></p>
-    <br>
-    <p id="textoMpptAdecuado"><b>El modelo adecuado es:</b> </p>
-    <p id="mpptadecuado"></p>
-    <p id="textoTodosMpptAdecuado"><b>Pero también todos estos modelos sirven:</b> </p>
-    <p id="todosmpptadecuado"></p>
+     <div class="form">
+      <label for="potenciaPanel">Introducir potencia del panel en Watts:</label>
+      <input type="number" id="potenciaPanel" name="potenciaPanel" min="10">
+      <br>
+      <label for="Voc">Introducir el Voc del panel (Open circuit voltage):</label>
+      <input type="number" id="Voc" name="Voc" size="10" required min="10" max="100">
+      <br>
+      <label for="tempMin">Introducir la temperatura mínma de operación:</label>
+      <select name="tempMin" id="tempMin">
+        <option value="10">10°C</option>
+        <option value="0">0°C</option>
+        <option value="-10">-10°C</option>
+        <option value="-20">-20°C</option>
+        <option value="-30">-30°C</option>
+        <option value="-40">-40°C</option>
+      </select>
+      <br>
+      <label for="cantSerie">Introducir la cantida de paneles en Serie:</label>
+      <input type="number" id="cantSerie" name="cantSerie" size="10" required value="1">
+      <br>
+      <label for="cantString">Introducir la cantidad de Strings (Por ejemplo si un arreglo de 6 paneles, tiene strings de 3 paneles en serie, el total de strings es de 2):</label>
+      <input type="number" id="cantString" name="cantString" size="10" required min="1"  value="1">
+      <br>
+      <label for="voltBat">Seleccionar el voltaje del banco de baterías:</label>
+      <select id="voltBat" name="voltBat">  
+        <option value="12">12</option>  
+        <option value="24">24</option>  
+        <option value="48">48</option>  
+      </select>
+      <br>
+      <button id="calcVoc">CALCULAR</button>
+      <br>
+    </div>
+      
+    
+
+    <div class="respuesta">
+      <h2 id="mppth2">Controlador MPPT adecuado:</h2>
+      <p id="resultado"></p>
+      <p id="mppt"></p>
+      <br>
+      <p id="textoMpptAdecuado"><b>El modelo adecuado es:</b> </p>
+      <p id="mpptadecuado"></p>
+      <p id="textoTodosMpptAdecuado"><b>Pero también todos estos modelos sirven:</b> </p>
+      <p id="todosmpptadecuado"></p>
+    </div>
 
 
 

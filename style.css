@@ -1,16 +1,18 @@
 
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+  }
   
   h1 {
     background-color: slategray;
     
     color: white;
     text-align: center;
-    padding: 20px 30px;
+    padding: 10px 30px;
     
-  }
-  
-  h1, p, a, h2, button {
-    font-family: Arial;
   }
   
   button {
@@ -24,8 +26,25 @@
     display: none;
   }
 
-  input{
+  input, select{
     height: auto;
     border: 1px solid darkslategrey;
+    width: 200px;
+    margin: 5px 0px 10px 0px;
+    border-radius: 5px;
     
   }
+
+  label {
+    display: block;
+  }
+
+  .form, .respuesta {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin:20px
+  }
+
+  
+
