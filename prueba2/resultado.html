@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./script2.js" defer></script>
+        <link rel="stylesheet" href="./style.css" type="text/css">
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+
+    </head>
+    <body>
+        <div>
+            <h1>CONTROLADOR MPPT SELECCIONADO</h1>
+            <h2>Datos Ingresados:</h2>
+            <ul>
+                <li id="potenciaPanel"></li>
+                <li id="Voc"></li>
+                <li id="tempMin"></li>
+                <li id="cantSerie"></li>
+                <li id="cantString"></li>
+                <li id="voltBat"></li>
+            </ul>
+        </div>
+        <br>
+        <div>
+            <h2>Características del arreglo fotovoltaico:</h2>
+            <ul>
+                <li id="pot-total"></li>
+                <li id="voc-string"></li>
+            </ul>
+            <br>
+            <p><em>*: Se considera un Voltage temperature coefficient</em> de -0,33%/°C</p>
+            <h2 id="mppth2">Controlador MPPT adecuado:</h2>
+            <p id="mppt"></p>
+            <br>
+            <p id="mpptadecuado"></p>
+            <br>
+            <p>- Otros modelos adecuados son:</p>
+            <p id="todosmpptadecuado"></p>
+            <br>
+            <p id="cableAdecuado"></p>
+        </div>
+    </body>
+</html>
