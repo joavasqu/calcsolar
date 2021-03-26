@@ -132,7 +132,7 @@ document.getElementById('voltBat').innerHTML = `El voltaje del banco de batería
 
 // Acá abajo calcularemos la sección recomendada del cable y pondremos el innerHTML el resultado.
 
-seccionRecomendada = dimensionadorCable(distancia, (potenciaArreglo/(voc*0.83)),voc);
+var seccionRecomendada = dimensionadorCable(distancia, (potenciaArreglo/(voc*0.83)),voc);
 console.log(seccionRecomendada);
 document.getElementById('cableAdecuado').innerHTML = `- La sección de cable recomendada entre los paneles y el regulador de carga para una distancia de ${distancia} metros es de: <b>${seccionRecomendada[0][2]} mm2</b>, generando una pérdida de <b>${seccionRecomendada[0][3]}</b>.`
 
