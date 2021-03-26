@@ -1,32 +1,11 @@
+// importación de módulos
 
-/*
-const words = new URLSearchParams(window.location.search);
+import {arrayMppt, arrayCables} from './data.js';
 
-// Cleans up and capitalizes the names of the animals
-function cleanAndCap (str){
-  if(!str) return null
-  let temp = str.trim()
-  return temp[0].toUpperCase() + temp.substring(1)
-}
-
-// Assigning the variables with values used in the story
-const firstAnimal= cleanAndCap(words.get('animal-1'));
-const secondAnimal = cleanAndCap(words.get('animal-2'));
-*/
 const datos = new URLSearchParams(window.location.search);
 
-const arrayMppt = [{modelo: "Tracer2210BN", ventrada: 100, capacidad: 20, maxvoltbateria: 24},
-                    {modelo: "Tracer3210BN", ventrada: 100, capacidad: 30 ,maxvoltbateria: 24},
-                    {modelo: "Tracer4210AN", ventrada: 100, capacidad: 40 ,maxvoltbateria: 24},
-                    {modelo: "Tracer4215BN", ventrada: 150, capacidad: 40 ,maxvoltbateria: 24},
-                    {modelo: "Tracer5415AN", ventrada: 150, capacidad: 50 ,maxvoltbateria: 48},
-                    {modelo: "Tracer10415AN", ventrada: 150, capacidad: 100 ,maxvoltbateria: 48},
-                    {modelo: "Tracer5420AN", ventrada: 200, capacidad: 50 ,maxvoltbateria: 48},
-                    {modelo: "Tracer8420AN", ventrada: 200, capacidad: 80 ,maxvoltbateria: 48}
-                ];
-
 //Este arreglo de cables está compuesto así [medida en mm2 del AWG, AWG, equivalente más cercano en mm2]
-const arrayCables = [[1.31, 16,1,5],[2.08, 14, 2,5],[3.31, 12, 4],[5.26,10,6],[8.37,8,10],[13.3, 6, 16],[21.2, 4, 25],[33.6, 2, 35],[42.4, 1, 50], [53.3, 1/0, 70],[67.4, '2/0',70],[85,'3/0',95],[107,'4/0',120]];
+
 
 // esta función elige al primer controlador del arreglo de controladores que cumple con las características requeridas.
 function eleccionModeloMppt(maxVoc, ampsMax, arregloControladores, voltajeBateria){
@@ -75,7 +54,7 @@ function dimensionadorCable(distancia, amperaje, voltajeVoc){
             break;
         }
     }
-
+// Falta agregar las condiciones de máximo amperaje según la norma Chilena. https://www.sec.cl/sitioweb/electricidad_norma4/norma4_completa.pdf
 }
 
 
