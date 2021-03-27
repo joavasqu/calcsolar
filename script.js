@@ -4,9 +4,6 @@ import {arrayMppt, arrayCables} from './data.js';
 
 const datos = new URLSearchParams(window.location.search);
 
-//Este arreglo de cables está compuesto así [medida en mm2 del AWG, AWG, equivalente más cercano en mm2]
-
-
 // esta función elige al primer controlador del arreglo de controladores que cumple con las características requeridas.
 function eleccionModeloMppt(maxVoc, ampsMax, arregloControladores, voltajeBateria){
     var modelos = [];
@@ -41,20 +38,21 @@ function arregloAlista(array){
     return unorderedList;
 }
 
-// esta función cálcula la sección del conductor adecuado para tener una pérdida inferior a 2%. Devuelve el string con los 3 valores que sirven, donde en la posición 2 está el cable en mm2 que se usó para calcular. Ver mas detalles arriba en el arreglo de cables.
+// esta función cálcula la sección del conductor adecuado para tener una pérdida inferior a 2%. Devuelve el string con los 3 valores que sirven, donde en la posición 2 está el cable en mm2 que se usó para calcular. Ver mas detalles del arreglo de cables en data.js. El input voltajeVoc es un número que corresponde al máximo voltaje del arreglo.
 
 function dimensionadorCable(distancia, amperaje, voltajeVoc){
     var cablePerdida = [];
     for(var i = 0; i<arrayCables.length;i++){
-        if(((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/100000)*voltajeVoc*0.82))< 0.02){
-            cablePerdida.push(arrayCables[i]);
-            //le agregamos la pérdida en %.
-            cablePerdida[0][3]= (((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/100000)*voltajeVoc*0.82))*100).toFixed(2)+'%';
-            return cablePerdida;
-            break;
+        if(amperaje < arrayCables[i][3]){
+            if(((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/100000)*voltajeVoc*0.82))< 0.02){
+                cablePerdida.push(arrayCables[i]);
+                //le agregamos la pérdida en %.
+                cablePerdida[0][3]= (((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/100000)*voltajeVoc*0.82))*100).toFixed(2)+'%';
+                return cablePerdida;
+                break;
+            }
         }
     }
-// Falta agregar las condiciones de máximo amperaje según la norma Chilena. https://www.sec.cl/sitioweb/electricidad_norma4/norma4_completa.pdf
 }
 
 
@@ -74,6 +72,7 @@ let string = datos.get('cantSerie');
 let cantString = datos.get('cantString');
 let voltBat = datos.get('voltBat');
 let distancia = datos.get('distancia');
+let potenciaInv = datos.get('potencia-inv');
     // Cálculo de VOC máximo
 let vocMax = voc * (1+(temp - 25)*-0.33/100)*string;
 vocMax = vocMax.toFixed(2);
@@ -132,7 +131,20 @@ document.getElementById('voltBat').innerHTML = `El voltaje del banco de batería
 
 // Acá abajo calcularemos la sección recomendada del cable y pondremos el innerHTML el resultado.
 
-var seccionRecomendada = dimensionadorCable(distancia, (potenciaArreglo/(voc*0.83)),voc);
+//1. Entre Paneles y Regulador de Carga
+var maxAmperajeArreglo = potenciaArreglo/(voc*string*0,83);
+var seccionRecomendada = dimensionadorCable(distancia, maxAmperajeArreglo,voc);
 console.log(seccionRecomendada);
 document.getElementById('cableAdecuado').innerHTML = `- La sección de cable recomendada entre los paneles y el regulador de carga para una distancia de ${distancia} metros es de: <b>${seccionRecomendada[0][2]} mm2</b>, generando una pérdida de <b>${seccionRecomendada[0][3]}</b>.`
+
+//2. Entre Regulador de Carga y Banco de Baterías (o barra)
+
+var seccionMppt = dimensionadorCable(2, amps, voltBat);
+document.getElementById('cableMppt').innerHTML = `- La seción de cable recomendada entre el regulador de carga y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionMppt[0][2]} mm2 </b>.`;
+
+//3. Entre Baterías (o barra) e Inversor
+
+var seccionInv = dimensionadorCable(2, potenciaInv/voltBat, voltBat);
+document.getElementById('cableInversor').innerHTML = `- La seción de cable recomendada entre el Inversor y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionInv[0][2]} mm2 </b>. Esta sección considera que el inversor tiene una potencia de ${potenciaInv} Watts y el banco de baterías un voltaje de ${voltBat} Volts.`;
+
 

@@ -59,9 +59,13 @@
 
   div{
     border: 1px black solid;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 10px;
     margin: 5px 0px;
+  }
+
+  .resp {
+    padding-left: 50px;
   }
 
   
