@@ -1,64 +1,15 @@
-<html> 
-  <head>
-    
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
-    <title>Calculadora Solar</title> 
-    <link rel="stylesheet" href="./style.css">
-  </head>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css" type="text/css">
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+    </head>
     <body>
-
-    <h1>Selección de controlador MPPT</h1>
-    <form action="resultado.html" method="GET">
-     <div class="form">
-      <label for="potenciaPanel">Introducir potencia del panel en Watts:</label>
-      <input type="number" id="potenciaPanel" name="potenciaPanel" min="10">
-      <br>
-      <label for="Voc">Introducir el Voc del panel (Open circuit voltage):</label>
-      <input type="number" id="Voc" name="Voc" size="10" required min="10" max="100">
-      <br>
-      <label for="tempMin">Introducir la temperatura mínma de operación:</label>
-      <select name="tempMin" id="tempMin">
-        <option value="10">10°C</option>
-        <option value="0">0°C</option>
-        <option value="-10">-10°C</option>
-        <option value="-20">-20°C</option>
-        <option value="-30">-30°C</option>
-        <option value="-40">-40°C</option>
-      </select>
-      <br>
-      <label for="cantSerie">Introducir la cantida de paneles en Serie:</label>
-      <input type="number" id="cantSerie" name="cantSerie" size="10" required value="1">
-      <br>
-      <label for="cantString">Introducir la cantidad de Strings (Por ejemplo si un arreglo de 6 paneles, tiene strings de 3 paneles en serie, el total de strings es de 2):</label>
-      <input type="number" id="cantString" name="cantString" size="10" required min="1"  value="1">
-      <br>
-      <label for="voltBat">Seleccionar el voltaje del banco de baterías:</label>
-      <select id="voltBat" name="voltBat">  
-        <option value="12">12</option>  
-        <option value="24">24</option>  
-        <option value="48">48</option>  
-      </select>
-      <br>
-      <label for="distancia">Indique la distancia entre los paneles solares y el controlador de carga (en metros)</label>
-      <input type="number" id="distancia" name="distancia" required min="5" value="5">
-      <br>
-      <label for="potencia-inv">Ingrese la potencia del Inversor</label>
-      <select id="potencia-inv" name="potencia-inv">
-        <option value="500">500 Watts</option>
-        <option value="1000">1000 Watts</option>
-        <option value="1500">1500 Watts</option>
-        <option value="2000">2000 Watts</option>
-        <option value="3000">3000 Watts</option>
-        <option value="5000">5000 Watts</option>
-      </select>
-      <br>
-      <input id="calcVoc" type="submit"  value="CALCULAR">
-      
-      <br>
-    </div>
-  </form>
-    
-  </body>
+        <div>
+            <h1><a href="./consumo.html">CALCULADORA DE CONSUMO ELÉCTRICO</a></h1>
+            <h1><a href="./strings.html">SELECCIÓN MPPT Y SECCIÓN CABLES</a></h1>
+        </div>
+    </body>
 </html>

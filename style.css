@@ -36,10 +36,9 @@
   input, select{
     height: auto;
     border: 1px solid darkslategrey;
-    width: 200px;
+    width: 150px;
     margin: 5px 0px 10px 0px;
-    border-radius: 5px;
-    
+    border-radius: 5px;    
   }
 
   label {
@@ -61,11 +60,19 @@
     border: 1px black solid;
     border-radius: 5px;
     padding: 10px;
-    margin: 5px 0px;
+    margin: 10px 10px;
   }
 
   .resp {
     padding-left: 50px;
+  }
+
+  .radio {
+    display: inline;
+  }
+
+  input[type="radio"] {
+    width: auto;
   }
 
   

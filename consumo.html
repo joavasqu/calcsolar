@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./consumo.js"></script>
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+        <title>Calculadora Consumo</title> 
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div>
+            <h1>Calculadora de consumo energético</h1>
+            <br>
+            <p>Acá podrá estimar rápidamente su consumo eléctrico. Esta planilla de cálculo toma algunas consideraciones que deben aclararse previamente. Estas consideraciones se hacen con el fin de simplificar el cálculo.</p>
+            <ul>
+                <li>Todas las ampolletas consideradas son LED y de 9W de consumo eléctrico.</li>
+                <li>Se considera que las ampolletas están encendidas 6 horas por día en promedio.</li>
+                <li>El refrigerador se considera tipo A+ (eficiencia energética) con un consumo mensual de 25 kWh.</li>
+                <li>El lavavajillas se considera del año 2015 en adelante y con un consumo por lavado de 1,5 kWh.</li>
+                <li>Se considera un televisor LED de 40 pulgadas con una potencia de 100 W.</li>
+            </ul>
+            <br>
+        </div>
+        <div>
+            <h2>Ingrese su información:</h2>
+            <label for="ampolletas">1. Cuantas ampolletas tiene instaladas:</label>
+            <input type="number" name="ampolletas" id="ampolletas" required min="0" value="0">
+            <br>
+            <p>2. Seleccione si utiliza un refrigerador:</p>
+            <input type="radio" name="refri" id="refriSi" value="1" checked>
+            <label for="refriSi" class="radio">SI</label>
+            <br>
+            <input type="radio" name="refri" id="refriNo" value="0">
+            <label for="refriNo" class="radio"> NO</label>
+            <br>
+            <p>2. Utiliza un televisor</p>
+            <input type="radio" name="tv" id="tvSi" value="1" checked>
+            <label for="tvSi" class="radio">SI</label>
+            <br>
+            <input type="radio" name="tv" id="tvNo" value="0">
+            <label for="tvNo" class="radio">NO</label>
+            <br>
+            <label for="cantTv" id="cantTvLabel">2.1. ¿Cuantos televisores tiene ?</label>
+            <input type="number" name="cantTv" id="cantTv" min="1" required value="1">
+            <br>
+            <label for="lavadora">3. Cuantos lavados de ropa promedio hace por semana:</label>
+            <input type="number" name="lavadora" id="lavadora" min="0" required>
+            <br>
+            <p>4. ¿ Tiene decodificador para la TV ?</p>
+            <input type="radio" name="deco" id="decoSi" value="1">
+            <label for="decoSi" class="radio">SI</label>
+            <br>
+            <input type="radio" name="deco" id="decoNo" value="0">
+            <label for="decoNo" class="radio">NO</label>
+            <p></p>
+            <input type="submit" id="consumo" value="Calcular Consumo">
+            
+         
+        </div>
+        
+        
+    </body>
+</html>
