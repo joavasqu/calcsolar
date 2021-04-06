@@ -24,3 +24,18 @@ export const arrayCables = [
     [67.4, '2/0',70, 164],
     [85,'3/0',95, 197],
     [107,'4/0',120, 235]];
+
+export const arrayRad = [
+    {mes: 'Enero', radiacion:149},
+    {mes: 'Febrero', radiacion:120},
+    {mes: 'Marzo', radiacion:105},
+    {mes: 'Abril', radiacion:67},
+    {mes: 'Mayo', radiacion:42},
+    {mes: 'Junio', radiacion:22.5},
+    {mes: 'Julio', radiacion:31},
+    {mes: 'Agosto', radiacion:54.6},
+    {mes: 'Septiembre', radiacion:83.6},
+    {mes: 'Octubre', radiacion:112.4},
+    {mes: 'Noviembre', radiacion:151},
+    {mes: 'Diciembre', radiacion:161}
+]

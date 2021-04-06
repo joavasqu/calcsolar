@@ -1,3 +1,5 @@
+import {arrayRad} from './data.js';
+
 const datos = new URLSearchParams(window.location.search);
 
 let ampolletas = datos.get('ampolletas');
@@ -16,6 +18,33 @@ function calcularConsumoMensual(){
 
 }
 
+//función para pasar a arreglo tabla la cobertura del consumo por parte de un determinado array.
+function arregloAlista(arrayRad, potencia, consumo){
+    var table = document.createElement('table');
+    var cabezera = document.createElement('thead');
+    var filaCabezera = cabezera.insertRow();
+    var mes = filaCabezera.insertCell();
+    mes.appendChild(document.createTextNode('MES'));
+    var coberturaHead = filaCabezera.insertCell();
+    coberturaHead.appendChild(document.createTextNode('COBERTURA'))
+    filaCabezera.appendChild(mes);
+    filaCabezera.appendChild(coberturaHead);
+    cabezera.appendChild(filaCabezera);
+    table.appendChild(cabezera);
+
+    for(var i=0; i<arrayRad.length ;i++){
+        var tr = table.insertRow();
+        var td = tr.insertCell();
+        td.appendChild(document.createTextNode(arrayRad[i].mes));
+        tr.appendChild(td);
+        var cobertura = tr.insertCell();
+        cobertura.appendChild(document.createTextNode(Math.floor(potencia*arrayRad[i].radiacion/consumo*100)+'%'));
+        tr.appendChild(cobertura);
+        table.appendChild(tr);
+    }
+    return table;
+}
+
 var consumo = calcularConsumoMensual();
 
 
@@ -27,3 +56,15 @@ let arreglo1 = document.getElementById('arreglo1');
 // Acá ponemos los resultados:
 
 consumoHtml.innerHTML = `El consumo mensual calculado es de: <b>${consumo} kWh</b>`;
+
+var potenciaArreglo = document.getElementById('potSolar').value;
+document.getElementById('tabla').appendChild(arregloAlista(arrayRad, potenciaArreglo, consumo));
+
+document.getElementById('potSolar').addEventListener('change',  function(){
+    var potenciaArreglo = document.getElementById('potSolar').value;
+    var tabla = document.getElementById('tabla');
+    var parentNode = tabla.parentNode;
+    var tablaNueva = arregloAlista(arrayRad, potenciaArreglo, consumo);
+    tablaNueva.id = 'tabla';
+    parentNode.replaceChild(tablaNueva,tabla);
+} )

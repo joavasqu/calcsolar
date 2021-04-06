@@ -8,9 +8,28 @@
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
     </head>
     <body>
-        <h1>Resultado de cálculo de consumo eléctrico.</h1>
-        <br>
-        <p id="consumo"></p>
+        <div>
+            <h1>Resultado de cálculo de consumo eléctrico.</h1>
+            <br>
+            <p id="consumo"></p>
+            <br>
+            <label for="potSolar">Seleccione el Arreglo Solar que desea Utilizar:</label>
+                <select name="potSolar" id="potSolar">
+                    <option value="0.825">3 Paneles de 275W = 0,825kW</option>
+                    <option value="1.05">3 Paneles de 335W = 1,05kW</option>
+                    <option value="1.65">6 Paneles de 275W = 1,65kW</option>
+                    <option value="2.1">6 Paneles de 335W = 2,1kW</option>
+                    <option value="2.475">9 Paneles de 275W = 2,475</option>
+                    <option value="3.015">9 Paneles de 335W = 3,015</option>
+                    <option value="3.3">12 Paneles de 275W = 3,3kW</option>
+                    <option value="4.2">12 Paneles de 335W = 4,2kW</option>
+                    <option value="8.04">24 Paneles de 335W = 8.04</option>
+
+                </select>
+            
+            <table id="tabla"></table>
+        </div>
+        
 
     </body>
 </html>
