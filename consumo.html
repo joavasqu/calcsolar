@@ -10,7 +10,6 @@
     </head>
     <body>
         <div>
-            <h1><em>ESTA PÁGINA SE ENCUENTRA EN DESARROLLO Y AÚN NO ESTÁ OPERATIVA</em></h1>
             <h1>Calculadora de consumo energético</h1>
             <br>
             <p>Acá podrá estimar rápidamente su consumo eléctrico. Esta planilla de cálculo toma algunas consideraciones que deben aclararse previamente. Estas consideraciones se hacen con el fin de simplificar el cálculo.</p>
@@ -18,9 +17,12 @@
                 <li>Todas las ampolletas consideradas son LED y de 9W de consumo eléctrico.</li>
                 <li>Se considera que las ampolletas están encendidas 6 horas por día en promedio.</li>
                 <li>El refrigerador se considera tipo A+ (eficiencia energética) con un consumo mensual de 25 kWh.</li>
-                <li>El lavavajillas se considera del año 2015 en adelante y con un consumo por lavado de 1,5 kWh.</li>
-                <li>Se considera un televisor LED de 40 pulgadas con una potencia de 100 W.</li>
+                <li>La lavadora de ropa se considera del año 2015 en adelante y con un consumo por lavado de 1,5 kWh.</li>
+                <li>Se considera un televisor LED de 40 pulgadas con una potencia de 100 W y que funciona por 4 horas al día.</li>
+                <li>El decodificador consumo 10W y se considera que funciona por 4 horas al día.</li>
                 <li>Se sugiere incoporar una ampolleta adicional cada 2 cargadores de celular.</li>
+                <li>Se considera un microondas de potencia de 1000W. Cada uso son 3 minutos.</li>
+                <li>La radio se considera con potencia de 10W y 8 horas al día de uso.</li>
             </ul>
             <br>
         </div>
@@ -45,7 +47,7 @@
                 <label for="tvNo" class="radio">NO</label>
                 <br>
                 <label for="cantTv" id="cantTvLabel">2.1. ¿Cuantos televisores tiene ?</label>
-                <input type="number" name="cantTv" id="cantTv" min="1" required value="1">
+                <input type="number" name="cantTv" id="cantTv" min="0" required value="1">
                 <br>
                 <label for="lavadora">3. Cuantos lavados de ropa promedio hace por semana:</label>
                 <input type="number" name="lavadora" id="lavadora" min="0" value="0" required>
@@ -54,9 +56,27 @@
                 <input type="radio" name="deco" id="decoSi" value="1">
                 <label for="decoSi" class="radio">SI</label>
                 <br>
-                <input type="radio" name="deco" id="decoNo" value="0">
+                <input type="radio" name="deco" id="decoNo" value="0" checked>
                 <label for="decoNo" class="radio">NO</label>
-                <p></p>
+                <br>
+                <p>5.¿ Tiene Microondas ?</p>
+                <input type="radio" name="micro" id="microSi" value="1">
+                <label for="microSi" class="radio">SI</label>
+                <br>
+                <input type="radio" name="micro" id="microNo" value="0" checked>
+                <label for="microNo" class="radio">NO</label>
+                <br>
+                <label for="microVeces">5.1 ¿ Cuantas veces al día usa el microondas ?</label>
+                <input type="number" name="microVeces" id="microTiempo" value="0">
+                <br>
+                <p>6. ¿ Utiliza Radio ?</p>
+                <input type="radio" name="radio" id="radioSi" value="1" checked>
+                <label for="radioSi" class="radio">SI</label>
+                <br>
+                <input type="radio" name="radio" id="radioNo" value="0">
+                <label for="radioNo" class="radio">NO</label>
+                <br>
+
                 <input type="submit" id="consumo" value="Calcular Consumo">
             </form>
             
