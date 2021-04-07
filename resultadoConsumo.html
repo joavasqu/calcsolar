@@ -43,6 +43,18 @@
             <p>La tabla a continuación presenta la cobertura de la energía solar generada por el arreglo solar seleccionado sobre el consumo de energía teórico indicado previamente. El indicador de cobertura de 100% indica que el consumo puede ser abastecido 100% por los paneles solares.</p>
             <br>
             <table id="tabla"></table>
+            <br>
+            <h3>Capacidad del Banco de Baterías</h3>
+            <p>A continuación se indica la capacidad recomendada del banco de baterías en kWh. La configuración final del banco dependerá de la selección del controlador de carga e inversor. Se considera el tamaño mínimo para el banco de baterías considerando:</p>
+            <ol>
+                <li>1. No sobrepasar la corriente máxima de carga.</li>
+                <ul>
+                    <li>En baterías ácidas es un 20% de su capacidad nominal.</li>
+                    <li>En baterías de Litio es un 60% de su capacidad nominal.</li>
+                </ul>
+                <li>Dos días de autonomía de las baterías para el consumo promedio.</li>
+            </ol>
+            <p id="capBat"></p>
         </div>
         
 
