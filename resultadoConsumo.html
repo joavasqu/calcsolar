@@ -13,8 +13,21 @@
             <br>
             <p id="consumo"></p>
             <br>
+            <p id="consumoReal"></p>
+            <p><b>Este último resultado está pensado para sistemas OFF-GRID Lo que involucra los parámetros adicionales:</b></p>
+                <ul>
+                    <li>Eficiencia de controlador de carga MPPT = 95% .</li>
+                    <li>Eficiencia de ciclo de carga de baterías = 95% .</li>
+                    <li>Eficiencia de Inversor = 92%</li>
+                    <li>Consumo en vacío del Inversor = 25 W (por 24h).</li>
+                    <li>Pérdidas por transmisión eléctrica = 3% .</li>
+                </ul>
+            <br>
             <label for="potSolar">Seleccione el Arreglo Solar que desea Utilizar:</label>
                 <select name="potSolar" id="potSolar">
+                    <option value="0.275">1 Panel de 275W = 0.275kW</option>
+                    <option value="0.335">1 Panel de 335W = 0,35kW</option>
+                    <option value="0.55">2 Paneles de 275W = 0,55kW</option>
                     <option value="0.825">3 Paneles de 275W = 0,825kW</option>
                     <option value="1.05">3 Paneles de 335W = 1,05kW</option>
                     <option value="1.65">6 Paneles de 275W = 1,65kW</option>
@@ -26,7 +39,9 @@
                     <option value="8.04">24 Paneles de 335W = 8.04</option>
 
                 </select>
-            
+            <br>
+            <p>La tabla a continuación presenta la cobertura de la energía solar generada por el arreglo solar seleccionado sobre el consumo de energía teórico indicado previamente. El indicador de cobertura de 100% indica que el consumo puede ser abastecido 100% por los paneles solares.</p>
+            <br>
             <table id="tabla"></table>
         </div>
         

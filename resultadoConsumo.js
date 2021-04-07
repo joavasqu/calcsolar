@@ -18,6 +18,12 @@ function calcularConsumoMensual(){
 
 }
 
+function calcularConsumoMensualReal(){
+    let calculo = (ampolletas*9*6*30)+(refrigerador*25000)+(televisor*cantTv*100*4*30)+(lavadora*1500*4.5)+(deco*10*4*30*cantTv)+(micro*microVeces*1500*3/60*30)+(radio*10*8*30); //son 4.5 semanas el mes en promedio por eso la lavadora se calcula *4
+    return ((calculo/(0.95*0.95*0.92*0.97)+(25*24*30))/1000);
+
+}
+
 //función para pasar a arreglo tabla la cobertura del consumo por parte de un determinado array.
 function arregloAlista(arrayRad, potencia, consumo){
     var table = document.createElement('table');
@@ -46,25 +52,28 @@ function arregloAlista(arrayRad, potencia, consumo){
 }
 
 var consumo = calcularConsumoMensual();
-
+consumo = consumo.toFixed(2);
+var consumoReal = calcularConsumoMensualReal();
+consumoReal = consumoReal.toFixed(2);
 
 // El consumo total mensual en HTML en la página de resultado
 let consumoHtml = document.getElementById('consumo');
-// Arreglo 1
-let arreglo1 = document.getElementById('arreglo1');
+let consumoHtmlReal = document.getElementById('consumoReal')
 
 // Acá ponemos los resultados:
 
-consumoHtml.innerHTML = `El consumo mensual calculado es de: <b>${consumo} kWh</b>`;
+consumoHtml.innerHTML = `El consumo eléctrico teórico mensual calculado es de: <b>${consumo} kWh</b>`;
+consumoHtmlReal.innerHTML = `El consumo eléctrico mensual para un sistema OFF GRID calculado es de: <b>${consumoReal} kWh</b>`;
 
+// Acá se pone una primera tabla con la selección del primer arreglo disponible.
 var potenciaArreglo = document.getElementById('potSolar').value;
-document.getElementById('tabla').appendChild(arregloAlista(arrayRad, potenciaArreglo, consumo));
+document.getElementById('tabla').appendChild(arregloAlista(arrayRad, potenciaArreglo, consumoReal));
 
 document.getElementById('potSolar').addEventListener('change',  function(){
     var potenciaArreglo = document.getElementById('potSolar').value;
     var tabla = document.getElementById('tabla');
     var parentNode = tabla.parentNode;
-    var tablaNueva = arregloAlista(arrayRad, potenciaArreglo, consumo);
+    var tablaNueva = arregloAlista(arrayRad, potenciaArreglo, consumoReal);
     tablaNueva.id = 'tabla';
     parentNode.replaceChild(tablaNueva,tabla);
 } )
