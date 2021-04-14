@@ -40,14 +40,14 @@ function arregloAlista(array){
 
 // esta función cálcula la sección del conductor adecuado para tener una pérdida inferior a 2%. Devuelve el string con los 3 valores que sirven, donde en la posición 2 está el cable en mm2 que se usó para calcular. Ver mas detalles del arreglo de cables en data.js. El input voltajeVoc es un número que corresponde al máximo voltaje del arreglo.
 
-function dimensionadorCable(distancia, amperaje, voltajeVoc){
+function dimensionadorCable(distancia, amperaje, voltajeVoc, caida){
     var cablePerdida = [];
     for(var i = 0; i<arrayCables.length;i++){
         if(amperaje < arrayCables[i][3]){
-            if(((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/100000)*voltajeVoc*0.82))< 0.02){
+            if(((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/1000000)*voltajeVoc))< caida){
                 cablePerdida.push(arrayCables[i]);
                 //le agregamos la pérdida en %.
-                cablePerdida[0][3]= (((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/100000)*voltajeVoc*0.82))*100).toFixed(2)+'%';
+                cablePerdida[0][3]= (((2*0.000000017*distancia*amperaje)/((arrayCables[i][2]/1000000)*voltajeVoc))*100).toFixed(2)+'%';
                 return cablePerdida;
                 break;
             }
@@ -133,18 +133,18 @@ document.getElementById('voltBat').innerHTML = `El voltaje del banco de batería
 
 //1. Entre Paneles y Regulador de Carga
 var maxAmperajeArreglo = potenciaArreglo/(voc*string*0,83);
-var seccionRecomendada = dimensionadorCable(distancia, maxAmperajeArreglo,voc);
+var seccionRecomendada = dimensionadorCable(distancia, maxAmperajeArreglo,voc*0.82, 0.02);
 console.log(seccionRecomendada);
 document.getElementById('cableAdecuado').innerHTML = `- La sección de cable recomendada entre los paneles y el regulador de carga para una distancia de ${distancia} metros es de: <b>${seccionRecomendada[0][2]} mm2</b>, generando una pérdida de <b>${seccionRecomendada[0][3]}</b>.`
 
 //2. Entre Regulador de Carga y Banco de Baterías (o barra)
 
-var seccionMppt = dimensionadorCable(2, amps, voltBat);
-document.getElementById('cableMppt').innerHTML = `- La seción de cable recomendada entre el regulador de carga y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionMppt[0][2]} mm2 </b>.`;
+var seccionMppt = dimensionadorCable(2, amps, voltBat, 0.003);
+document.getElementById('cableMppt').innerHTML = `- La seción de cable recomendada entre el regulador de carga y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionMppt[0][2]} mm2 </b>, generando una pérdida de <b>${seccionMppt[0][3]}</b>.`;
 
 //3. Entre Baterías (o barra) e Inversor
 
-var seccionInv = dimensionadorCable(2, potenciaInv/voltBat, voltBat);
-document.getElementById('cableInversor').innerHTML = `- La seción de cable recomendada entre el Inversor y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionInv[0][2]} mm2 </b>. Esta sección considera que el inversor tiene una potencia de ${potenciaInv} Watts y el banco de baterías un voltaje de ${voltBat} Volts.`;
+var seccionInv = dimensionadorCable(2, potenciaInv/voltBat, voltBat, 0.003);
+document.getElementById('cableInversor').innerHTML = `- La seción de cable recomendada entre el Inversor y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionInv[0][2]} mm2 </b>, generando una pérdida de <b>${seccionInv[0][3]}</b>.. Esta sección considera que el inversor tiene una potencia de ${potenciaInv} Watts y el banco de baterías un voltaje de ${voltBat} Volts.`;
 
 
