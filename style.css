@@ -37,7 +37,16 @@
     margin: 20px;
     font-size: auto;
     border: 1px solid darkslategrey;
-    
+  }
+
+  #calcBat {
+    width: auto;
+    padding: 0.5em;
+  }
+
+  #calcBat:hover {
+    background-color: blue;
+    color: white;
   }
 
   #mppth2, #textoMpptAdecuado, #textoTodosMpptAdecuado {
