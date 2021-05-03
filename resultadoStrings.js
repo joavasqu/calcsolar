@@ -133,7 +133,8 @@ document.getElementById('voltBat').innerHTML = `El voltaje del banco de batería
 
 //1. Entre Paneles y Regulador de Carga
 var maxAmperajeArreglo = potenciaArreglo/(voc*string*0,83);
-var seccionRecomendada = dimensionadorCable(distancia, maxAmperajeArreglo,voc*0.82, 0.02);
+console.log(`El maximo amperaje del arreglo es: ${maxAmperajeArreglo}`);
+var seccionRecomendada = dimensionadorCable(distancia, maxAmperajeArreglo, (voc*string*0.83), 0.02);
 console.log(seccionRecomendada);
 document.getElementById('cableAdecuado').innerHTML = `- La sección de cable recomendada entre los paneles y el regulador de carga para una distancia de ${distancia} metros es de: <b>${seccionRecomendada[0][2]} mm2</b>, generando una pérdida de <b>${seccionRecomendada[0][3]}</b>.`
 

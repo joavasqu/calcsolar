@@ -38,4 +38,45 @@ export const arrayRad = [
     {mes: 'Octubre', radiacion:112.4},
     {mes: 'Noviembre', radiacion:151},
     {mes: 'Diciembre', radiacion:161}
-]
+];
+
+export const arregloPv = [
+    {potencia:0.275 , enSerie:1 , enParalelo:1 ,vocMax:44.79 , vmp:31.7 ,panel: '275W'},
+    {potencia:0.335 , enSerie:1 , enParalelo:1 ,vocMax:52.83 , vmp:38.13 ,panel: '335W'},
+    {potencia:0.55 , enSerie:2 , enParalelo:1 ,vocMax:89.58 , vmp:63.4 ,panel: '275W'},
+    {potencia:0.825 , enSerie:3 , enParalelo:1 ,vocMax:134.37 , vmp:95.1 ,panel: '275W'},
+    {potencia:1.05 , enSerie:3 , enParalelo:1 ,vocMax:158.9 , vmp:114.39 ,panel: '335W'},
+    {potencia:1.65 , enSerie:3 , enParalelo:2 ,vocMax:134.37 , vmp:95.1 ,panel: '275W'},
+    {potencia:2.1 , enSerie:3 , enParalelo:2 ,vocMax:158.9 , vmp:114.39 ,panel: '335W'},
+    {potencia:2.475 , enSerie:3 , enParalelo:3 ,vocMax:134.37 , vmp:95.1 ,panel: '275W'},
+    {potencia:3.015 , enSerie:3 , enParalelo:3 ,vocMax:158.9 , vmp:114.39 ,panel: '335W'},
+    {potencia:3.3 , enSerie:3 , enParalelo:4 ,vocMax:134.37 , vmp:95.1 ,panel: '275W'},
+    {potencia:4.2 , enSerie:3 , enParalelo:4 ,vocMax:158.9 , vmp:114.39 ,panel: '335W'},
+    {potencia:6.03 , enSerie:3 , enParalelo:6 ,vocMax:158.9 , vmp:114.39 ,panel: '335W'},
+    {potencia:8.04 , enSerie:3 , enParalelo:8 ,vocMax:158.9 , vmp:114.39 ,panel:'335W'},
+];
+
+export const arregloBatLitio = [
+    {nombre:'1x100Ah-12V' , capacidad:1.2 , voltaje:12 ,enSerie:1 , enParalelo:1 , bateria:'LIFEPO 100AH-12V' },
+    {nombre:'2x100Ah-12V' , capacidad:2.4 , voltaje:12 ,enSerie:1 , enParalelo:2 , bateria:'LIFEPO 100AH-12V' },
+    {nombre:'2x100Ah-12V' , capacidad:2.4 , voltaje:24 ,enSerie:2 , enParalelo:1 , bateria:'LIFEPO 100AH-12V' },
+    {nombre:'3x100Ah-12V' , capacidad:3.6 , voltaje:12 ,enSerie:1 , enParalelo:3 , bateria:'LIFEPO 100AH-12V' },
+    {nombre:'4x100Ah-12V' , capacidad:4.8 , voltaje:24 ,enSerie:2 , enParalelo:2 , bateria:'LIFEPO 100AH-12V' },
+    {nombre:'4x100Ah-12V' , capacidad:4.8 , voltaje:48 ,enSerie:4 , enParalelo:2 , bateria:'LIFEPO 100AH-12V' },
+    {nombre:'1x50Ah-48V' , capacidad:2.4 , voltaje:12 ,enSerie:1 , enParalelo:1 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'2x50Ah-48V' , capacidad:4.8 , voltaje:48 ,enSerie:1 , enParalelo:2 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'3x50Ah-48V' , capacidad:7.2 , voltaje:48 ,enSerie:1 , enParalelo:3 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'4x50Ah-48V' , capacidad:9.6 , voltaje:48 ,enSerie:1 , enParalelo:4 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'5x50Ah-48V' , capacidad:12 , voltaje:48 ,enSerie:1 , enParalelo:5 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'6x50Ah-48V' , capacidad:14.4 , voltaje:48 ,enSerie:1 , enParalelo:6 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'7x50Ah-48V' , capacidad:16.8 , voltaje:48 ,enSerie:1 , enParalelo:7 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'8x50Ah-48V' , capacidad:19.2 , voltaje:48 ,enSerie:1 , enParalelo:8 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'9x50Ah-48V' , capacidad:21.6 , voltaje:48 ,enSerie:1 , enParalelo:9 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'10x50Ah-48V' , capacidad:24.4 , voltaje:48 ,enSerie:1 , enParalelo:10 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'11x50Ah-48V' , capacidad:26.8 , voltaje:48 ,enSerie:1 , enParalelo:11 , bateria:'LIFEPO 50AH-48V RACK' },
+    {nombre:'11x50Ah-48V' , capacidad:29.2 , voltaje:48 ,enSerie:1 , enParalelo:12 , bateria:'LIFEPO 50AH-48V RACK' },   
+];
+
+export const arregloBatAcido = [
+
+];

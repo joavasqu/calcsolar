@@ -1,4 +1,6 @@
 import {arrayRad} from './data.js';
+import {arregloPv} from './data.js';
+import {arregloBatLitio} from './data.js';
 
 const datos = new URLSearchParams(window.location.search);
 
@@ -63,6 +65,26 @@ function arregloAlista(arrayRad, potencia, consumo){
     return table;
 }
 
+function crearSelect(arreglo, capMin){
+    var select = document.createElement('select');
+    select.id = 'bancoLitio';
+
+    for(var i=0; i<arreglo.length; i++){
+        if(arreglo[i].capacidad > capMin){
+            var option = document.createElement('option');
+            option.value = arreglo[i].capacidad;
+            option.innerHTML = `${arreglo[i].nombre}: capacidad de ${arreglo[i].capacidad}kWh y voltaje: ${arreglo[i].voltaje}V`;
+            select.appendChild(option);
+        }
+       
+    }
+    return select;
+}
+
+
+//console.log(crearSelect(arregloBatLitio));
+
+
 function capacidadBancoBatAcido(potenciaPaneles, consumoReal){
     var capBatHtml = document.getElementById('capBat');
     var tipoBat = document.getElementById('tipoBat').value;
@@ -107,6 +129,7 @@ document.getElementById('potSolar').addEventListener('change',  function(){
     var tablaNueva = arregloAlista(arrayRad, potenciaArreglo, consumoReal);
     tablaNueva.id = 'tabla';
     parentNode.replaceChild(tablaNueva,tabla);
+    localStorage.setItem('tabla',tablaNueva.innerHTML);
 
 
 } )
@@ -120,3 +143,5 @@ document.getElementById('calcBat').addEventListener('click', function(){
 document.getElementById('potSolar').addEventListener('change', () =>{document.getElementById('capBat').style.display='none';})
 document.getElementById('tipoBat').addEventListener('change', () =>{document.getElementById('capBat').style.display='none';})
 document.getElementById('autonomia').addEventListener('change', () =>{document.getElementById('capBat').style.display='none';})
+
+document.getElementById('banco').parentNode.insertBefore(crearSelect(arregloBatLitio, 3),document.getElementById('banco').nextSibling);

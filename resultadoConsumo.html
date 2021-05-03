@@ -25,53 +25,61 @@
                     <li>Pérdidas por transmisión eléctrica = 3% .</li>
                 </ul>
             <br>
-            <h2>2. Selección de arreglo solar fotovoltaico:</h2>
-            <label for="potSolar">2.1 Seleccione el Arreglo Solar que desea Utilizar:</label>
-                <select name="potSolar" id="potSolar">
-                    <option value="0.275">1 Panel de 275W = 0.275kW</option>
-                    <option value="0.335">1 Panel de 335W = 0,35kW</option>
-                    <option value="0.55">2 Paneles de 275W = 0,55kW</option>
-                    <option value="0.825">3 Paneles de 275W = 0,825kW</option>
-                    <option value="1.05">3 Paneles de 335W = 1,05kW</option>
-                    <option value="1.65">6 Paneles de 275W = 1,65kW</option>
-                    <option value="2.1">6 Paneles de 335W = 2,1kW</option>
-                    <option value="2.475">9 Paneles de 275W = 2,475</option>
-                    <option value="3.015">9 Paneles de 335W = 3,015</option>
-                    <option value="3.3">12 Paneles de 275W = 3,3kW</option>
-                    <option value="4.2">12 Paneles de 335W = 4,2kW</option>
-                    <option value="8.04">24 Paneles de 335W = 8.04kW</option>
+                <form action="informe.html"></form>
+                <h2>2. Selección de arreglo solar fotovoltaico:</h2>
+                <label for="potSolar">2.1 Seleccione el Arreglo Solar que desea Utilizar:</label>
+                    <select name="potSolar" id="potSolar">
+                        <option value="0.275">1 Panel de 275W = 0.275kW</option>
+                        <option value="0.335">1 Panel de 335W = 0,35kW</option>
+                        <option value="0.55">2 Paneles de 275W = 0,55kW</option>
+                        <option value="0.825">3 Paneles de 275W = 0,825kW</option>
+                        <option value="1.05">3 Paneles de 335W = 1,05kW</option>
+                        <option value="1.65">6 Paneles de 275W = 1,65kW</option>
+                        <option value="2.1">6 Paneles de 335W = 2,1kW</option>
+                        <option value="2.475">9 Paneles de 275W = 2,475</option>
+                        <option value="3.015">9 Paneles de 335W = 3,015</option>
+                        <option value="3.3">12 Paneles de 275W = 3,3kW</option>
+                        <option value="4.2">12 Paneles de 335W = 4,2kW</option>
+                        <option value="6.03">18 Paneles de 335W = 4,2kW</option>
+                        <option value="8.04">24 Paneles de 335W = 8.04kW</option>
+                    </select>
+                <br>
+                <p>La tabla a continuación presenta la cobertura de la energía solar generada por el arreglo solar seleccionado sobre el consumo de energía teórico indicado previamente. El indicador de cobertura de 100% indica que el consumo puede ser abastecido 100% por los paneles solares.</p>
+                <br>
+                <table id="tabla"></table>
+                <br>
+                <h2>3. Selección del banco de Baterías</h2>
+                <p>A continuación se calculará la capacidad recomendada del banco de baterías en kWh. La configuración final del banco dependerá de la selección del controlador de carga e inversor. Se eligirá el tamaño mínimo para el banco de baterías considerando:</p>
+                <ol>
+                    <li>1. No sobrepasar la corriente máxima de carga.</li>
+                    <ul>
+                        <li>En baterías ácidas es un 20% de su capacidad nominal.</li>
+                        <li>En baterías de Litio es un 60% de su capacidad nominal.</li>
+                    </ul>
+                    <li>2. Los días de autonomía del banco de baterías para el consumo promedio. Se recomienda solo 1 día.</li>
+                </ol>
+                <h3>3.1 Favor complete los siguientes 2 campos.</h3>
+                <label for="tipoBat">3.1.1 Seleccione el tipo de Batería que desee utilizar:</label>
+                <select name="tipoBat" id="tipoBat">
+                    <option value="litio">Litio (LIFEPO4)</option>
+                    <option value="acido">AGM, GEL, OPzV</option>
                 </select>
-            <br>
-            <p>La tabla a continuación presenta la cobertura de la energía solar generada por el arreglo solar seleccionado sobre el consumo de energía teórico indicado previamente. El indicador de cobertura de 100% indica que el consumo puede ser abastecido 100% por los paneles solares.</p>
-            <br>
-            <table id="tabla"></table>
-            <br>
-            <h2>3. Selección del banco de Baterías</h2>
-            <p>A continuación se calculará la capacidad recomendada del banco de baterías en kWh. La configuración final del banco dependerá de la selección del controlador de carga e inversor. Se eligirá el tamaño mínimo para el banco de baterías considerando:</p>
-            <ol>
-                <li>1. No sobrepasar la corriente máxima de carga.</li>
-                <ul>
-                    <li>En baterías ácidas es un 20% de su capacidad nominal.</li>
-                    <li>En baterías de Litio es un 60% de su capacidad nominal.</li>
-                </ul>
-                <li>2. Los días de autonomía del banco de baterías para el consumo promedio. Se recomienda solo 1 día.</li>
-            </ol>
-            <h3>3.1 Favor complete los siguientes 2 campos.</h3>
-            <label for="tipoBat">3.1.1 Seleccione el tipo de Batería que desee utilizar:</label>
-            <select name="tipoBat" id="tipoBat">
-                <option value="litio">Litio (LIFEPO4)</option>
-                <option value="acido">AGM, GEL, OPzV</option>
-            </select>
-            <p><em>Nota: las baterías de litio cuestan aproximadamente 3 veces más que las de plomo pero duran hasta 9 veces más.</em></p>
-            <label for="autonomia">3.1.2 Seleccione la cantidad de días de autonomía: </label>
-            <select name="autonomia" id="autonomia">
-                <option value="1">1 día.</option>
-                <option value="2">2 días.</option>
-            </select>
-            <br>
-            <input type="button" id="calcBat" value="Calcular Banco de Baterías">
-            <p id="capBat" display="none"></p>
-        </div>
+                <p><em>Nota: las baterías de litio cuestan aproximadamente 3 veces más que las de plomo pero duran hasta 9 veces más.</em></p>
+                <label for="autonomia">3.1.2 Seleccione la cantidad de días de autonomía: </label>
+                <select name="autonomia" id="autonomia">
+                    <option value="1">1 día.</option>
+                    <option value="2">2 días.</option>
+                </select>
+                <br>
+                <input type="button" id="calcBat" value="Calcular Banco de Baterías">
+                <p id="capBat" display="none"></p>
+                <br>
+                <label for="banco" id="banco">Seleccione el banco de baterías: </label>
+                
+                
+            </div>
+            
+        </form>
 
         
 
