@@ -125,14 +125,14 @@ document.getElementById('voc-string').innerHTML = `El voltaje máximo de circuit
 document.getElementById('potenciaPanel').innerHTML = `Potencia del panel es de: <b>${potencia}</b> Watts`;
 document.getElementById('Voc').innerHTML = `El voltaje de circuito abierto del panel es de <b>${voc}</b> Volts`;
 document.getElementById('tempMin').innerHTML =`La temperatura mínima de operación es de <b>${temp}</b> °C` ;
-document.getElementById('cantSerie').innerHTML = `La cantidad de strings es de <b>${string}</b>`;
+document.getElementById('cantSerie').innerHTML = `La cantidad de de paneles en serie por cada string es de: <b>${string}</b>`;
 document.getElementById('cantString').innerHTML = `La cantidad de strings es de <b>${cantString}</b> Strings`;
 document.getElementById('voltBat').innerHTML = `El voltaje del banco de baterías es de <b>${voltBat}</b> Volts`;
 
 // Acá abajo calcularemos la sección recomendada del cable y pondremos el innerHTML el resultado.
 
 //1. Entre Paneles y Regulador de Carga
-var maxAmperajeArreglo = potenciaArreglo/(voc*string*0,83);
+var maxAmperajeArreglo = potenciaArreglo/(voc*string*0.83);
 var seccionRecomendada1 = dimensionadorCable(distancia, maxAmperajeArreglo, (voc*string*0.83), 0.02);
 var seccionRecomendada2 = dimensionadorCable(distancia, maxAmperajeArreglo, (voc*string*0.83), 0.03);
 
