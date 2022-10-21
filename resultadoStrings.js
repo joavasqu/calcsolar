@@ -97,10 +97,10 @@ let amps = 0;
         controlador = 'Se puede utilizar un controlador MPPT con Voltaje máximo de entrada de 150V.';
     } else if (vocMax < 200){
         controlador = 'Se puede utilizar un controlador MPPT con Voltaje máximo de entrada de 200V.';
-    } else if (vocMax < 250){
-        controlador = 'Se puede utilizar un controlador MPPT con Voltaje máximo de entrada de 250V.';
+    } else if (vocMax < 450){
+        controlador = 'Se puede utilizar un controlador MPPT con Voltaje máximo de entrada de 450V.';
     } else {
-        controlador = '<b>NO HAY DISPONIBLES</b> controladores de carga MPPT para voltajes de entrada superiores a 250V';
+        controlador = '<b>NO HAY DISPONIBLES</b> controladores de carga MPPT para voltajes de entrada superiores a 450V';
     }
 
 

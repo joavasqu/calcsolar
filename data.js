@@ -5,7 +5,8 @@ export const arrayMppt = [{modelo: "Tracer2210BN", ventrada: 100, capacidad: 20,
                     {modelo: "Tracer5415AN", ventrada: 150, capacidad: 50 ,maxvoltbateria: 48},
                     {modelo: "Tracer10415AN", ventrada: 150, capacidad: 100 ,maxvoltbateria: 48},
                     {modelo: "Tracer5420AN", ventrada: 200, capacidad: 50 ,maxvoltbateria: 48},
-                    {modelo: "Tracer8420AN", ventrada: 200, capacidad: 80 ,maxvoltbateria: 48}
+                    {modelo: "Tracer8420AN", ventrada: 200, capacidad: 80 ,maxvoltbateria: 48},
+                    {modelo: "EPEVER UPOWER HI 48/5000", ventrada: 450, capacidad: 80, maxvoltbateria: 48}
                 ];
 
 //Este arreglo de cables está compuesto así [medida en mm2 del AWG, AWG, equivalente más cercano en mm2, Max Amperaje según norma chilena NCH Elec 4/2003]
@@ -79,4 +80,19 @@ export const arregloBatLitio = [
 
 export const arregloBatAcido = [
 
+];
+
+export const arregloInteracumuladores = [
+{nombre:'300L', potenciaSerp:40, capacidad:300},
+{nombre:'500L', potenciaSerp:50, capacidad:500},
+{nombre:'1000L', potenciaSerp:90, capacidad:1000},
+];
+
+export const arregloEstablecimientos = [
+{nombre:'Hotel 5 Estrellas', cantAcsxCama:70 , factorUso:0.5},
+{nombre:'Hotel 4 Estrellas', cantAcsxCama:70 , factorUso:0.5},
+{nombre:'Hotel 3 Estrellas', cantAcsxCama:55 , factorUso:0.5},
+{nombre:'Hotel 2 Estrellas', cantAcsxCama:40 , factorUso:0.5},
+{nombre:'Gimnasio', cantAcsxCama:25 , factorUso:0.35},
+{nombre:'Ducha Colectiva', cantAcsxCama:20 , factorUso:0.35}
 ];

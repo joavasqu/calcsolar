@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="./boilers.js" defer></script> <!-- Se usa para ocultar cierta pares del menú dependiendo de si es hospedaje o no.-->
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+        <title>Calculadora Consumo</title> 
+        <link rel="stylesheet" href="./style.css">  
+    </head>
+    <body>
+        <div>
+            <h1>Calculadora de Interacumuladores para generación de ACS</h1>
+            <br>
+            <p>Los interacumuladores son estanques de agua con tratamiento interno de vitrificado que permite usarlos con agua potable. A la vez contienen en su interior intercambiadores de calor, por eso la nomenclatura <b>inter</b>acumulador, donde inter viene de intercambiador de calor. </p>
+            <br>
+            <p>Para determinar el tamaño que debe tener un interacmulador para generar suficiente agua caliente sanitaria (ACS) se debe tomar en consideración el tipo de establecimiento y la cantidad de usuarios. En caso de ser un establecimiento de hospedaje, se determina por el número de camas y por la calidad del servicio que se desea prestar. En caso de ser un establecimiento de otro tipo, se determina por la cantidad de usuarios que utilizan las instalaciones cada día.</p>
+        </div>
+        <div>
+            <h2>Ingrese su información a continuación:</h2>
+            <form action="boilersResultado.html" method="get">
+                <p>1. Es un establecimiento de hospedaje:</p>
+                <input type="radio" name="hospe" id="hospeSi" value="1" checked>
+                <label for="hospeSi" class="radio">SI</label>
+                <br>
+                <input type="radio" name="hospe" id="hospeNo" value="0">
+                <label for="hospeNo" class="radio">NO</label>
+                <br>
+                <label for="tipoHosp" id="tipoHospLabel">2. Seleccione el tipo de hospedaje:</label>
+                <select name="tipoHosp" id="tipoHosp"> <!-- Acá los values tendrán que ser linkeados al array de data en data.js Por ejemplo, el value1, tiene que estar asociado al hotel 5 estrellas-->
+                    <option value="1">Hotel 5 estrellas</option>
+                    <option value="2">Hotel 4 estrellas</option>
+                    <option value="3">Hotel 3 estrellas</option>
+                    <option value="4">Hostal</option>
+                </select>
+                <br>
+                <label for="camas" id="camasLabel">3. Ingrese la cantidad de camas simples (una cama doble vale por 2 simples):</label>
+                <input type="number" name="camas" id="camasCant" min="2" max="200" value="10">
+                <br>
+                <label for="tipoEst" id="tipoEstLabel" style="display: none;">2. Seleccione el tipo de establecimiento</label>
+                <select name="tipoEst" id="tipoEst" style="display: none;">
+                    <option value="5">Gimnasio</option> <!--Los values con correlativos a los del tipo de Hoteles para simplificar los cálculos y las tablas con datos-->
+                    <option value="6">Vestuarios / Ducha Colectiva</option>
+                </select>
+                <br>
+                <label for="usuarios" id="usuariosLabel" style="display: none;">3. Ingrese aquí la cantidad de usuarios máxima por día del establecimiento.</label>
+                <input type="number" name="usuarios" id="usuarios" min="2" max="300" step="1" style="display: none;">
+                <br>
+                <label for="temp" id="tempLabel">4. Ingrese la temperatura deseada de acumulación. Se recomienda 60°C.</label>
+                <input type="number" name="temp" id="tempBoiler" min="50" max="70" value="60">
+                <br>
+                <input type="submit" id="boilers" value="Calcular Interacumulador">
+
+            </form>
+
+        </div>
+    </body>
+</html>
