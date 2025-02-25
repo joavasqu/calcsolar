@@ -6,7 +6,9 @@ export const arrayMppt = [{modelo: "Tracer2210BN", ventrada: 100, capacidad: 20,
                     {modelo: "Tracer10415AN", ventrada: 150, capacidad: 100 ,maxvoltbateria: 48},
                     {modelo: "Tracer5420AN", ventrada: 200, capacidad: 50 ,maxvoltbateria: 48},
                     {modelo: "Tracer8420AN", ventrada: 200, capacidad: 80 ,maxvoltbateria: 48},
-                    {modelo: "EPEVER UPOWER HI 48/5000", ventrada: 450, capacidad: 80, maxvoltbateria: 48}
+                    {modelo: "EPEVER UPOWER HI 48/5000", ventrada: 450, capacidad: 80, maxvoltbateria: 48},
+                    {modelo: "GI-POWER UP5048", ventrada: 450, capacidad: 80, maxvoltbateria: 48},
+                    {modelo: "DEYE SUN-5K-SG03LP1-EU", ventrada: 500, capacidad: 120, maxvoltbateria: 48}
                 ];
 
 //Este arreglo de cables está compuesto así [medida en mm2 del AWG, AWG, equivalente más cercano en mm2, Max Amperaje según norma chilena NCH Elec 4/2003]
