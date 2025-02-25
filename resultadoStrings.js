@@ -140,12 +140,12 @@ document.getElementById('cableAdecuado').innerHTML = `- La sección de cable rec
 
 //2. Entre Regulador de Carga y Banco de Baterías (o barra)
 
-var seccionMppt = dimensionadorCable(2, amps, voltBat, 0.01);
-document.getElementById('cableMppt').innerHTML = `- La seción de cable recomendada entre el regulador de carga y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionMppt[0][2]} mm2 </b>, generando una pérdida de <b>${seccionMppt[0][3]}</b>.`;
+var seccionMppt = dimensionadorCable(1.5, amps, voltBat, 0.01);
+document.getElementById('cableMppt').innerHTML = `- La seción de cable recomendada entre el regulador de carga y las baterías (o barra) considerando 1,5 metros de distancia es de: <b>${seccionMppt[0][2]} mm2 </b>, generando una pérdida de <b>${seccionMppt[0][3]}</b>.`;
  
 //3. Entre Baterías (o barra) e Inversor
 
-var seccionInv = dimensionadorCable(2, potenciaInv/voltBat, voltBat, 0.01);
-document.getElementById('cableInversor').innerHTML = `- La seción de cable recomendada entre el Inversor y las baterías (o barra) considerando 2 metros de distancia es de: <b>${seccionInv[0][2]} mm2 </b>, generando una pérdida de <b>${seccionInv[0][3]}</b>.. Esta sección considera que el inversor tiene una potencia de ${potenciaInv} Watts y el banco de baterías un voltaje de ${voltBat} Volts.`;
+var seccionInv = dimensionadorCable(1.5, potenciaInv/voltBat, voltBat, 0.01);
+document.getElementById('cableInversor').innerHTML = `- La seción de cable recomendada entre el Inversor y las baterías (o barra) considerando 1,5 metros de distancia es de: <b>${seccionInv[0][2]} mm2 </b>, generando una pérdida de <b>${seccionInv[0][3]}</b>.. Esta sección considera que el inversor tiene una potencia de ${potenciaInv} Watts y el banco de baterías un voltaje de ${voltBat} Volts.`;
 
 
