@@ -88,6 +88,19 @@ export const arregloInteracumuladores = [
 {nombre:'1000L', potenciaSerp:90, capacidad:1000},
 ];
 
+export const arregloAutomaticos = [
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+{nombre: 'MCB10A', capacidad: 10},
+];
+
 export const arregloEstablecimientos = [
 {nombre:'Hotel 5 Estrellas', cantAcsxCama:70 , factorUso:0.5},
 {nombre:'Hotel 4 Estrellas', cantAcsxCama:70 , factorUso:0.5},
