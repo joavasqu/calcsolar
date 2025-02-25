@@ -12,13 +12,13 @@
     <h1>Selección de controlador MPPT</h1>
     <form action="resultadoStrings.html" method="GET">
      <div class="form">
-      <label for="potenciaPanel">Introducir potencia del panel en Watts:</label>
+      <label for="potenciaPanel">Introducir potencia del panel en Watts, se debe usar algún panel disponible comercialmente, ver la tabla al final del formulario:</label>
       <input type="number" id="potenciaPanel" name="potenciaPanel" min="10" max="700">
       <br>
-      <label for="Voc">Introducir el Voc del panel (Open circuit voltage):</label>
+      <label for="Voc">Introducir el Voc del panel (Open circuit voltage), si no tienes información al respecto, ver la tabla al final del formulario:</label>
       <input type="number" id="Voc" name="Voc" size="10" required min="10" max="100" step="0.01">
       <br>
-      <label for="tempMin">Introducir la temperatura mínma de operación:</label>
+      <label for="tempMin">Introducir la temperatura mínima de operación (esto es clave dado que a menor temperatura, mayor es el voltaje de los paneles):</label>
       <select name="tempMin" id="tempMin">
         <option value="10">10°C</option>
         <option value="0">0°C</option>
@@ -34,7 +34,7 @@
       <label for="cantString">Introducir la cantidad de Strings (Por ejemplo si un arreglo de 6 paneles, tiene strings de 3 paneles en serie, el total de strings es de 2):</label>
       <input type="number" id="cantString" name="cantString" size="10" required min="1"  value="1" max="10">
       <br>
-      <label for="voltBat">Seleccionar el voltaje del banco de baterías:</label>
+      <label for="voltBat">Seleccionar el voltaje del banco de baterías (en caso de que se use 51.2V, se debe seleccionar 48V):</label>
       <select id="voltBat" name="voltBat">  
         <option value="12">12</option>  
         <option value="24">24</option>  
@@ -44,7 +44,7 @@
       <label for="distancia">Indique la distancia entre los paneles solares y el controlador de carga (en metros)</label>
       <input type="number" id="distancia" name="distancia" required min="5" value="5">
       <br>
-      <label for="potencia-inv">Ingrese la potencia del Inversor</label>
+      <label for="potencia-inv">Ingrese la potencia de salida (a los consumos en 220V) del Inversor</label>
       <select id="potencia-inv" name="potencia-inv">
         <option value="500">500 Watts</option>
         <option value="1000">1000 Watts</option>
